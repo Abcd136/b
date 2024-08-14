@@ -3,68 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页界面</title>
+    <title>专业司机培训学校</title>
     <style>
         body {
-            font-family: '微软雅黑', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://raw.githubusercontent.com/Abcd136/b/main/.github/workflows/Image_1719447697482.png'); /* 替换为你的背景图片URL */
-            background-size: cover;
-            background-position: center;
             display: flex;
-            justify-content: center;
-            align-items: center;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
             height: 100vh;
-            flex-direction: column; /* 使用列布局 */
+            color: white;
+            padding: 20px;
+            transition: width 0.3s;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .sidebar .submenu {
+            display: none;
+            padding-left: 20px;
+        }
+        .sidebar .submenu a {
+            padding: 5px;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-category {
+            text-transform: uppercase;
+            color: #666;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .card-content {
+            font-size: 1em;
             color: #333;
         }
-        .download-container {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 80%; /* 容器宽度 */
-            max-width: 400px; /* 最大宽度 */
-            margin-bottom: 20px; /* 容器底部间距 */
-        }
-        .download-button {
-            background-color: #007BFF;
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: row; /* 保持侧边栏在左侧 */
+            }
+            .sidebar {
+                width: 70px; /* 保持固定宽度 */
+                height: 720px;
+            }
+            .main-content {
+                flex-grow: 1;
+                padding: 20px;
+            }
+            .card-container {
+                grid-template-columns: 1fr; /* 卡片堆叠 */
+            }
+            .download-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #5cb85c;
             color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+            text-decoration: none;
             border-radius: 5px;
-            margin: 5px 0; /* 按钮之间的间距 */
             transition: background-color 0.3s;
         }
-        .download-button:hover {
-            background-color: #0056b3;
+        .download-btn:hover {
+            background-color: #4cae4c;
         }
-        .download-info {
-            margin-top: 10px;
-        }
+    }
     </style>
 </head>
 <body>
+    <div class="sidebar">
+                <h2></h2>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu0')">首页</a>
+        <div id="submenu0" class="submenu">
+            <a href="#">跳转</a>
+        </div>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu1')">通知</a>
+        <div id="submenu1" class="submenu">
+            <a href="#">公告</a>
+        </div>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu2')">广播</a>
+        <div id="submenu2" class="submenu">
+            <a href="#">广播站</a>
+        </div>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu3')">安卓</a>
+        <div id="submenu3" class="submenu">
+            <a href="#">软件</a>
+            <a href="#">梯子</a>
+            <a href="#">影视</a>
+            <a href="#">小说</a>
+            <a href="#">AI</a>
+            <a href="#">搜图</a>
+            <a href="#">私密</a>
+            <a href="#">网盘</a>
+            <a href="#">手游</a>
+            <a href="#">动漫</a>
+            <a href="#">工具</a>
+        </div>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu4')">电脑</a>
+        <div id="submenu4" class="submenu">
+            <a href="#">软件</a>
+            <a href="#">梯子</a>
+            <a href="#">游戏网站</a>
+            <a href="#">游戏加速</a>
+            <a href="#">游戏</a>
+            <a href="#">系统</a>
+        </div>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu5')">吃瓜</a>
+        <div id="submenu5" class="submenu">
+            <a href="#">网络</a>
+        </div>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu6')">车牌</a>
+        <div id="submenu6" class="submenu">
+            <a href="#">网络</a>
+            <a href="#">车号</a>
+            <a href="#">里番</a>
+        </div>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu7')">旧网站</a>
+        <div id="submenu7" class="submenu">
+            <a href="https://abcd136.github.io/abcd/">跳转</a>
+        </div>
+    </div>
+    <div class="main-content">
+                <div class="header">
+            <h1>使用提示</h1>
+        </div>
 
-    <div class="download-container">
-        <h1>新论坛</h1>
-        <p class="download-info"></p>
-        <button class="download-button">
-        <a href="https://abcd136.github.io/b1/">访问地址</a>
- <!-- 根据需要添加更多软件下载按钮 -->
+        <div class="card-container">
+            
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">软件使用教程</div>
+                <div class="card-content">
+用户评分:★★★★☆ 4.8/5
+
+<p>如果软件需要充值才能使用，
+
+<p>请你立即卸载，带给你麻烦，
+
+<p>非常抱歉哈，祝你生活愉快！</div>
+            </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">推荐</div>
+        <div class="card-content">
+        <div class="download-section">
+            毒舌
+            <p>快猫
+            <p>稀饭动漫
+        
+        
+</div>
+            </div>
     </div>
 
-    <div class="download-container">
-        <h1>旧论坛</h1>
-        <p class="download-info"></p>
-        <button class="download-button">
-        <a href="https://abcd136.github.io/abcd/">访问地址</a>
- <!-- 根据需要添加更多软件下载按钮 -->
-    </div>
-
+    <script>
+        function toggleMenu(event, submenuId) {
+            event.preventDefault(); // 阻止链接的默认行为
+            var submenu = document.getElementById(submenuId);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        }
+        // ... JavaScript代码保持不变 ...
+    </script>
 </body>
 </html>
